@@ -15,7 +15,7 @@ seller_metrics as (
         s.seller_id,
         s.city                              as seller_city,
         s.state                             as seller_state,
-
+        concat('BR-', s.state)              as geo_state,
         count(distinct o.order_id)          as total_orders,
         count(distinct i.product_id)        as unique_products,
         sum(p.payment_value)                as total_revenue,
