@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: gold_seller_performance
+    description: "Seller-level metrics including revenue, delivery rate and order counts"
+    columns:
+      - name: seller_id
+        tests:
+          - unique
+          - not_null
+      - name: total_revenue
+        tests:
+          - not_null
+      - name: delivery_rate_pct
+        tests:
+          - not_null
+
+  - name: gold_daily_revenue
+    description: "Daily revenue trend with cumulative totals for dashboard visualisation"
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+
+  - name: gold_customer_segments
+    description: "Customer RFM segmentation — champions, loyal, new, at risk"
+    columns:
+      - name: customer_unique_id
+        tests:
+          - not_null
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['Champion','Loyal','High Value New',
+                       'New Customer','At Risk']
