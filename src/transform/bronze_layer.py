@@ -1,5 +1,3 @@
-# src/transform/bronze_layer.py
-
 import os
 import logging
 from pyspark.sql import SparkSession
