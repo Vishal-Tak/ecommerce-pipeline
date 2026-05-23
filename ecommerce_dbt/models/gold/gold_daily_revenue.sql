@@ -7,7 +7,6 @@ payments as (
 daily as (
     select
         date(o.purchased_at)            as order_date,
-        o.order_status,
 
         count(distinct o.order_id)      as total_orders,
         sum(p.payment_value)            as total_revenue,
@@ -18,7 +17,7 @@ daily as (
     from orders o
     left join payments p using (order_id)
     where o.purchased_at is not null
-    group by 1, 2
+    group by 1
 ),
 with_cumulative as (
     select
