@@ -3,6 +3,27 @@
 End-to-end data pipeline processing 100K+ Brazilian e-commerce 
 orders using a medallion architecture on Google Cloud Platform.
 
+## Dataset Setup
+
+1. Download the Olist dataset from Kaggle:
+   https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+2. Extract and place all CSV files in the `data/` folder:
+data/
+├── olist_orders_dataset.csv
+├── olist_customers_dataset.csv
+├── olist_order_items_dataset.csv
+├── olist_order_payments_dataset.csv
+├── olist_order_reviews_dataset.csv
+├── olist_products_dataset.csv
+├── olist_sellers_dataset.csv
+├── olist_geolocation_dataset.csv
+└── product_category_name_translation.csv
+3. Run the pipeline:
+```bash
+   python src/ingestion/upload_raw_data.py
+```
+
 ## Architecture
 
 ```
